@@ -1,5 +1,4 @@
 from django.db import models
-#from account.models import User
 
 class PersonalStatement(models.Model):
     applicant               = models.ForeignKey('account.Applicant', on_delete=models.CASCADE, null = True)

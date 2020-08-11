@@ -5,7 +5,13 @@ from django.urls import (
     include
 )
 
-from statement.views import *
+from statement.views import (
+	StatementDetailView,
+	StatementListView,
+	StatementWrite,
+	CorrectionResultView,
+	CorrectionUpdateView
+)
 
 urlpatterns = [
 	path('/write', StatementWrite.as_view()),

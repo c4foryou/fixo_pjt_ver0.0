@@ -20,7 +20,6 @@ from statement.models import (
 )
 
 from account.utils    import decorator_login
-from account.views    import *
 
 from account.models   import (
     User, 
@@ -36,8 +35,6 @@ class StatementWrite(View):
     def post(self, request):
         user_input_data = json.loads(request.body)
         user_input      = user_input_data['dataArr']
-        print(user_input)
-        #print(user_input['dataArr']['statement'])
         received_user   = request.user
         statement_list  = user_input['statement']
         if Applicant.objects.filter(user=received_user).exists():
@@ -56,7 +53,6 @@ class StatementWrite(View):
                     statement_question   = statement['question'],
                     statement_answer     = statement['answer'],
                     statement_correction = statement['answer'],
-                    #statement_comment=' ',
                     order                = statement['id'],
                 ).save()
 
@@ -83,11 +79,8 @@ class StatementWrite(View):
         return JsonResponse({"message": "save success"}, status=200)
 
 class StatementDetailView(View):
-    #@decorator_login
+    @decorator_login
     def get(self, request, statement_id):
-        #user_input = json.loads(request.body)
-        #received_user = request.user
-
         specified_statement = PersonalStatement.objects.get(id=statement_id)
         user_statements     = StatementList.objects.filter(statement=specified_statement)        
         statement_list=[
@@ -104,19 +97,14 @@ class StatementDetailView(View):
         return JsonResponse({"statement": statement_list,"specified_id":specified_statement.id}, status=200)
 
 
-
-
 class StatementListView(View):
     @decorator_login
     def get(self, request):
-        #user_input = json.loads(request.body)
         received_user = request.user
-        print(received_user.is_corrector)
 
         if received_user.is_corrector==True:
 
             submitted_statements = PersonalStatement.objects.filter(is_answer_completed=1)
-            print(submitted_statements)
             statement_list=[
                             {
                             "id"                  : statement.id,  
@@ -135,7 +123,6 @@ class StatementListView(View):
         elif received_user.is_corrector==False:
 
             submitted_statements = PersonalStatement.objects.filter(applicant=Applicant.objects.get(user=received_user))
-            print(submitted_statements)
             statement_list=[
                             {
                             "id"                  : statement.id,  
@@ -154,14 +141,9 @@ class StatementListView(View):
 
         return JsonResponse({"statement": statement_list}, status=200)
 
-        #return JsonResponse({"message": "You are not a corrector"}, status=401)
-
 
 class CorrectionUpdateView(View):
-
-
     def kakao_message_send(self, access_token, name, company, job_position):
-
         template_dict_data = str({
                         "object_type": "text",
                         "text": f"{name}님, {company} {job_position}직무 자기소개서 첨삭이 완료되었습니다",
@@ -173,13 +155,10 @@ class CorrectionUpdateView(View):
                     } 
         )
 
-
         template_json_data = "template_object=" + str(json.dumps(template_dict_data))   
 
         template_json_data = template_json_data.replace("\"", "")
         template_json_data = template_json_data.replace("'", "\"")
-
-        print(template_json_data)
 
         kakao_request = requests.request(
             method="POST",
@@ -190,35 +169,23 @@ class CorrectionUpdateView(View):
                 "Content-type"  : "application/x-www-form-urlencoded"
             },
             data=template_json_data)
-
-        print(kakao_request.status_code)
-        print(kakao_request.content)
         
         return JsonResponse({"message":"1"},status = kakao_request.status_code)
 
-
-
-
-    #@decorator_login
     def post(self, request):
         user_input_data = json.loads(request.body)
         user_input      = user_input_data["revisionArr"]
-        print(user_input)
-    #    received_user   = request.user
         
         correction_list = user_input
         
         for correction in correction_list:
-            print(correction['statement_id'])
             user_statement = StatementList.objects.get(id=correction['statement_id'])
-            try:
+
+            if correction["correction"] != None:
                 user_statement.statement_correction=correction["correction"]
-            except KeyError:
-                pass
-            try:
+            if correction["comment"] != None:
                 user_statement.statement_comment=correction["comment"]
-            except KeyError:
-                pass
+
             user_statement.save()
 
         if user_input_data['is_completed'] == 1:   

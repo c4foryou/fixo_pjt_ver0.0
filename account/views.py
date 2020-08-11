@@ -90,16 +90,16 @@ class KakaoLogin(View):
                         email         = kakao_info["kakao_account"]["email"],
                         name          = kakao_info["kakao_account"]["profile"]["nickname"],
                         login_site    = "k",
-                        is_corrector  = "0",
-                        profile_thumbnail = "0",
                         access_token  = jwt.encode({"email":kakao_info["kakao_account"]["email"], "site":"k"}, SECRET["secret"], algorithm = ALGORITHM).decode("utf-8")
                 ).save()
 
                 user_info = User.objects.get(email=kakao_info["kakao_account"]["email"])
-                try:
+                
+                if kakao_info["kakao_account"]["profile"]["profile_image_url"] != None:
                     user_info.profile_thumbnail = kakao_info["kakao_account"]["profile"]["profile_image_url"]
-                except KeyError:
+                else:
                     user_info.profile_thumbnail = random_picture[picture_number]
+                
                 user_info.save()
 
                 access_token  = user_info.access_token

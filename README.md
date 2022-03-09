@@ -16,7 +16,7 @@ To satisfy the demand from the job applicants, we have developed 'FIXO' as a pla
 2. Database Modeling
     - ERD
 
-![ex_screenshot](https://www.notion.so/Fixo-Project-057340f3ba914501a05ceb05cbffa3b6#dd49cf2b734b4802a1d0f4d8fcf3361f)
+![ex_screenshot](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/7ae775d2-de97-480a-a13a-ed31013ff4eb/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220309%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220309T180608Z&X-Amz-Expires=86400&X-Amz-Signature=af08c74e91e7ff4e3916257079f7bed28e9042e741898219efe60fbac220dc1e&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
 
 1. API Development
 2. Service Distribution

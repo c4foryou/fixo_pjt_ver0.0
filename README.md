@@ -13,18 +13,10 @@ To satisfy the demand from the job applicants, we have developed 'FIXO' as a pla
 1. Overall planning for the services
     - Storyboards
     
-    ![Fixo%20Proje%20e17fd/Untitled.png](Fixo%20Proje%20e17fd/Untitled.png)
-    
-    ![Fixo%20Proje%20e17fd/Untitled%201.png](Fixo%20Proje%20e17fd/Untitled%201.png)
-    
-    ![Fixo%20Proje%20e17fd/Untitled%202.png](Fixo%20Proje%20e17fd/Untitled%202.png)
-    
-    ![Fixo%20Proje%20e17fd/Untitled%203.png](Fixo%20Proje%20e17fd/Untitled%203.png)
-    
 2. Database Modeling
     - ERD
 
-![Untitled](Fixo%20Proje%20e17fd/Untitled%204.png)
+![ex_screenshot](https://www.notion.so/Fixo-Project-057340f3ba914501a05ceb05cbffa3b6#dd49cf2b734b4802a1d0f4d8fcf3361f)
 
 1. API Development
 2. Service Distribution

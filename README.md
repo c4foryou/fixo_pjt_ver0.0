@@ -1,3 +1,53 @@
+# Fixo Project
+
+**Summary**
+
+We have developed a website that provides editing services for essay questions on job applications. In Korea, job competition is so severe so that large companies usually request answers to 4-5 essay questions along with a resume from job applicants. 
+
+Therefore, writing impressive answers to these essay questions is considered one of the most important keys to receiving a job offer from well-known large companies such as Samsung, LG, and Hyundai Motors. Also, a lot of job seekers want professional editing services for their essays.
+
+To satisfy the demand from the job applicants, we have developed 'FIXO' as a platform to link them to editors who have professional work experiences and superior writing skills
+
+**What I did**
+
+1. Overall planning for the services
+    - Storyboards
+    
+    ![Fixo%20Proje%20e17fd/Untitled.png](Fixo%20Proje%20e17fd/Untitled.png)
+    
+    ![Fixo%20Proje%20e17fd/Untitled%201.png](Fixo%20Proje%20e17fd/Untitled%201.png)
+    
+    ![Fixo%20Proje%20e17fd/Untitled%202.png](Fixo%20Proje%20e17fd/Untitled%202.png)
+    
+    ![Fixo%20Proje%20e17fd/Untitled%203.png](Fixo%20Proje%20e17fd/Untitled%203.png)
+    
+2. Database Modeling
+    - ERD
+
+![Untitled](Fixo%20Proje%20e17fd/Untitled%204.png)
+
+1. API Development
+2. Service Distribution
+
+**Languages and Libraries**
+
+Backend: Python, Django, MySQL, Heroku
+
+Frontend: Javascript, React
+
+**Demo video**
+
+[https://www.youtube.com/watch?v=vPNl44uzJ5w&t=32s](https://www.youtube.com/watch?v=vPNl44uzJ5w&t=32s)
+
+**Repository**
+
+[https://github.com/c4foryou/fixo_pjt_ver0.0](https://github.com/c4foryou/fixo_pjt_ver0.0)
+
+**Site Link**
+
+[https://fixo-ver1.netlify.app/](https://fixo-ver1.netlify.app/)
+
+
 # Fixo-BackEnd
 
 ## 소개
